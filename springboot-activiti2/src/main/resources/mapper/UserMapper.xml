@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.UserMapper">
+    <resultMap id="user" type="com.example.userGroup.SysUser"/>
+    <parameterMap id="user2" type="com.example.userGroup.SysUser"/>
+    <resultMap id="role" type="com.example.userGroup.SysRole"/>
+
+    <select id="getUserList" resultMap="user">
+        SELECT  * FROM SYS_USER
+    </select>
+    <select id="selectPageVo" resultMap="user" parameterMap="user2">
+        SELECT  * FROM SYS_USER
+    </select>
+    <select id="getUserRoles" resultMap="role" parameterMap="user2">
+        select sr.* from sys_role sr
+        left join sys_user_role sur on  sr.id=sur.role_id
+        where sur.user_id = #{userId}
+    </select>
+</mapper>

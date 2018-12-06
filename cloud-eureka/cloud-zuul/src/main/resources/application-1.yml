@@ -1,0 +1,56 @@
+server:
+  port: 8888
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-connections: 2
+spring:
+  application:
+    name: cloud-eureka-zuul-gateway
+eureka:
+  client:
+    #表示是否将自己注册到Eureka Server，默认为true。
+    registerWithEureka: true
+    #表示是否从Eureka Server获取注册信息，默认为true。
+    fetchRegistry: true
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+    #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+zuul:
+  routes:
+    #可以使用test1 替换test
+#    test: /test1/**
+#    # routes to serviceId 这里边是通过serviceid来绑定地址，当在路径后添加/api-a/   则是访问cloud-eureka-client2对应的服务。
+#    api-a:  #让zuul方向代理微服务，路径是/test  abc只要是唯一的就行，可随意写
+#      path: /**
+#      serviceId: cloud-eureka-client1
+#
+#    api-b:
+#      path: /**
+#      serviceId: cloud-eureka-client2
+#
+#    # routes to url  这里是绑定具体的ip地址
+#    api-a-url:
+#      path: /**
+#      url: http://localhost:8887/
+     api-test:
+       #访问localhost:8888/test1/**  会跳转到服务提供者的2个ip  localhost:8762 和localhost:8763,实现负载均衡
+       #path: /test1/**
+       path: /**
+       serviceId: cloud-eureka-client
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+

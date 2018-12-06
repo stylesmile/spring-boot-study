@@ -1,0 +1,92 @@
+server:
+    port: 8080
+#spring
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    prefer-file-system-access: false
+    settings:
+      template_update_delay: 0
+      classic_compatible: true
+      number_format: 0.######
+      template_exception_handler: ignore
+    request-context-attribute: rc
+    charset: UTF-8
+  aop:
+    proxy-target-class: true
+  activiti:
+    check-process-definitions: false
+    async-executor-activate: false
+    async-executor-enabled: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/act?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT
+    username: root
+    password: root
+    druid:
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      max-wait: 60000
+      validation-query: select 'x'
+      validationQueryTimeout: 5
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+#      filters: log4j
+#      web-stat-filter:
+#        enabled: true
+#        url-pattern: /*
+#        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#        #你可以配置principalSessionName，使得druid能够知道当前的cookie的用户是谁
+#        #principal-cookie-name: admin
+#        #你可以配置principalSessionName，使得druid能够知道当前的session的用户是谁
+#        #principal-session-name: admin
+#        #设置profileEnable能够监控单个url调用的sql列表。
+#        profile-enable: true
+#        #session统计功能
+#        session-stat-enable: false
+#        #最大session数
+#        session-stat-max-count: 100000
+#      stat-view-servlet:
+#        #allow: ${GATEWAY_HOST:172.26.114.241}
+#        enabled: true
+#        login-username: ${DRUID_USER:admin}
+#        login-password: ${DRUID_PWD:admin}
+#        url-pattern: /druid/*
+#        #允许清除记录
+#        reset-enable: false
+#      aop-patterns: com.tdx.account_service.service.*
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.example.entity
+  global-config:
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: id_worker
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: h2
+    #刷新mapper 调试神器
+    refresh: true
+  # 原生配置
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+##logging
+#logging:
+#  level: warn

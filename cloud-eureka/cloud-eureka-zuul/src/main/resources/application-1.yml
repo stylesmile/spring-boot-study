@@ -1,0 +1,41 @@
+server:
+  port: 8761
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-connections: 2
+spring:
+  application:
+    name: cloud-eureka-zuul
+eureka:
+  client:
+    #表示是否将自己注册到Eureka Server，默认为true。
+    registerWithEureka: true
+    #表示是否从Eureka Server获取注册信息，默认为true。
+    fetchRegistry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+    #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+zuul:
+  routes:
+    api-test:
+      #反向代理，将/test/**, 映射到服务提供者cloud-game 的ip localhost:8762/**和localhost:8763/**
+      #path: /test/**
+      path: /**
+      #服务提供者
+      serviceId: cloud-game
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.EmailMapper">
+    <resultMap id="email" type="com.example.entity.Email"/>
+    <parameterMap id="email2" type="com.example.entity.Email"/>
+
+    <update id="updateProcessInstanceId" parameterMap="email2">
+		UPDATE email SET
+			process_instance_id = #{processInstanceId}
+		WHERE id = #{id}
+	</update>
+    <select id="getByProcessInstanceId" resultMap="email" >
+		select * from  email where process_instance_id = #{processInstanceId}
+	</select>
+
+</mapper>
