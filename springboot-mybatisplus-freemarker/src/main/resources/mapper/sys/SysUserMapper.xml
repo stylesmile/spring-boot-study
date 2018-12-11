@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Stylesmile.dao.SysUserMapper">
+    <resultMap id="user" type="com.Stylesmile.entity.SysUser"/>
+    <parameterMap id="user2" type="com.Stylesmile.entity.SysUser"/>
+    <select id="getSysUserByNameAndPassword" resultMap="user">
+        SELECT  * FROM sys_user WHERE  login_name=#{loginName} AND password=#{password} limit 1
+    </select>
+    <select id="getUserList" resultMap="user">
+        SELECT  * FROM sys_user
+    </select>
+    <select id="selectPageVo" resultMap="user" parameterMap="user2">
+        SELECT  * FROM sys_user
+    </select>
+
+</mapper>

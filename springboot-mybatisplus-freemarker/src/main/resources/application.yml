@@ -1,54 +1,16 @@
-server:
-    port: 8080
 #spring
 spring:
+  freemarker:
+    #默认后缀为.ftl  修改为.html
+    suffix: .html
+  profiles:
+    active: dev
   aop:
     proxy-target-class: true
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mybatisplus?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT
-    username: root
-    password: root
-    druid:
-      initial-size: 1
-      max-active: 20
-      min-idle: 1
-      max-wait: 60000
-      validation-query: select 'x'
-      validationQueryTimeout: 5
-      test-on-borrow: false
-      test-on-return: false
-      test-while-idle: true
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-#      filters: log4j
-#      web-stat-filter:
-#        enabled: true
-#        url-pattern: /*
-#        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-#        #你可以配置principalSessionName，使得druid能够知道当前的cookie的用户是谁
-#        #principal-cookie-name: admin
-#        #你可以配置principalSessionName，使得druid能够知道当前的session的用户是谁
-#        #principal-session-name: admin
-#        #设置profileEnable能够监控单个url调用的sql列表。
-#        profile-enable: true
-#        #session统计功能
-#        session-stat-enable: false
-#        #最大session数
-#        session-stat-max-count: 100000
-#      stat-view-servlet:
-#        #allow: ${GATEWAY_HOST:172.26.114.241}
-#        enabled: true
-#        login-username: ${DRUID_USER:admin}
-#        login-password: ${DRUID_PWD:admin}
-#        url-pattern: /druid/*
-#        #允许清除记录
-#        reset-enable: false
-#      aop-patterns: com.tdx.account_service.service.*
 
-#mybatis
+#mmybatis-plus   版本2和3用法有差别 此处为3
 mybatis-plus:
-  mapper-locations: classpath*:/mapper/**Mapper.xml
+  mapper-locations: classpath*:/mapper/*/**Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: com.example.entity
   global-config:
@@ -76,3 +38,11 @@ mybatis-plus:
 ##logging
 #logging:
 #  level: warn
+#beetl
+beetlsql:
+  enabled: false
+beetl:
+  enabled: true
+#,默认为true，即自动检查模板变化
+beetl-beetlsql:
+  dev: true

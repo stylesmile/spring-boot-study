@@ -1,4 +1,4 @@
-package com.slife.config;
+package com.Stylesmile.config;
 
 
 import com.alibaba.druid.support.http.StatViewServlet;
