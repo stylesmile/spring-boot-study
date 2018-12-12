@@ -18,4 +18,6 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
     List<SysUser> getUserList();
     IPage<SysUser> selectPageVo(Page page, @Param("state") Integer state);
     SysUser getSysUserByNameAndPassword(@Param("loginName") String loginName, @Param("password") String password);
+
+    IPage<SysUser> getUserList2(Page<SysUser> page, Integer state);
 }

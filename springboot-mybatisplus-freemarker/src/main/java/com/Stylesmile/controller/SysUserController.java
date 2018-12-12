@@ -3,6 +3,8 @@ package com.Stylesmile.controller;
 import com.Stylesmile.entity.SysUser;
 import com.Stylesmile.service.SysUserService;
 import com.Stylesmile.util.Result;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,56 +25,71 @@ public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
 
-    @GetMapping(model+"/index.html")
+    @GetMapping(model + "/index.html")
     @ResponseBody
-    public ModelAndView index(){
+    public ModelAndView index() {
         ModelAndView view = new ModelAndView("/system/sysUser/index");
-        return view ;
+        return view;
     }
-    @RequestMapping(model+"/list.json")
+
+    @RequestMapping(model + "/list.json")
     @ResponseBody
-    public Result<List<SysUser>> list(){
+    public Result<List<SysUser>> list() {
         List<SysUser> list = sysUserService.geList();
         return Result.success(list);
     }
-    @RequestMapping(model+"/add.html")
+
+    @RequestMapping(model + "/add.html")
     @ResponseBody
-    public ModelAndView add(){
+    public ModelAndView add() {
         ModelAndView view = new ModelAndView("/system/sysUser/add");
-        return view ;
+        return view;
     }
-    @RequestMapping(model+"/add.json")
+
+    @RequestMapping(model + "/add.json")
     @ResponseBody
-    public Result add(SysUser user){
+    public Result add(SysUser user) {
         Boolean b = sysUserService.saveOrUpdate(user);
-        if(b){
+        if (b) {
             return Result.success();
-        }else{
+        } else {
             return Result.fail();
         }
     }
-    @RequestMapping(model+"/edit.html")
-    public ModelAndView edit(int id){
+
+    @RequestMapping(model + "/edit.html")
+    public ModelAndView edit(int id) {
         ModelAndView view = new ModelAndView("/system/sysUser/add");
         SysUser user = sysUserService.getById(id);
-        view.addObject("user",user);
-        return view ;
+        view.addObject("user", user);
+        return view;
     }
-    @RequestMapping(model+"/edit.json")
+
+    @RequestMapping(model + "/edit.json")
     @ResponseBody
-    public Result edit(SysUser user){
+    public Result edit(SysUser user) {
         Boolean b = sysUserService.saveOrUpdate(user);
-        if(b){
+        if (b) {
             return Result.success();
-        }else{
+        } else {
             return Result.fail();
         }
     }
-//    //http://localhost:8080/getUserList
+
+    //http://localhost:8080/getUserList
     @GetMapping("getUserList")
     @ResponseBody
-    public List<SysUser> getUserList(){
+    public List<SysUser> getUserList() {
         return sysUserService.geList();
+    }
+
+    @GetMapping("selectUserPage")
+    public IPage<SysUser> selectUserPage(Page<SysUser> page, Integer state) {
+        // 不进行 count sql 优化，解决 MP 无法自动优化 SQL 问题，这时候你需要自己查询 count 部分
+        // page.setOptimizeCountSql(false);
+        // 当 total 为非 0 时(默认为 0),分页插件不会进行 count 查询
+        // 要点!! 分页返回的对象与传入的对象是同一个
+        return sysUserService.getUserList(page, state);
     }
 //
 //    //http://localhost:8080/getUserListByName?name=1

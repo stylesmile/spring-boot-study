@@ -9,6 +9,9 @@
     <select id="getUserList" resultMap="user">
         SELECT  * FROM sys_user
     </select>
+    <select id="getUserList2" resultMap="user">
+        SELECT  * FROM sys_user
+    </select>
     <select id="selectPageVo" resultMap="user" parameterMap="user2">
         SELECT  * FROM sys_user
     </select>
