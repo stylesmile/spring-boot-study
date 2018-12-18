@@ -68,7 +68,7 @@
             switch(obj.event){
                 case 'add':
                     var url = "/user/add.html";
-                    Common.topOpenDlg(url,"用户管理>新增",'25%','35%');
+                    Common.topOpenDlg(url,"用户管理>新增",'25%','42%');
                     break;
                 case 'update':
                     if(data.length === 0){
@@ -76,8 +76,9 @@
                     } else if(data.length > 1){
                         layer.msg('只能同时编辑一个');
                     } else {
-                        var url = "/user/edit.html";
-                        Common.topOpenDlg(url,"用户管理>新增",'25%','35%');
+                        var data = Common.getOneFromTable(table,"list");
+                        var url = "/user/edit.html?id="+data.id;
+                        Common.topOpenDlg(url,"用户管理>新增",'25%','42%');
                         //layer.alert('编辑 [id]：'+ checkStatus.data[0].id);
                     }
                     break;

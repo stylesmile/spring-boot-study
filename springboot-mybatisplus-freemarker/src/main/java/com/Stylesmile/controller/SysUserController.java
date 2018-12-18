@@ -3,6 +3,7 @@ package com.Stylesmile.controller;
 import com.Stylesmile.entity.SysUser;
 import com.Stylesmile.service.SysUserService;
 import com.Stylesmile.util.Result;
+import com.Stylesmile.util.UUIDUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,7 @@ public class SysUserController {
     @RequestMapping(model + "/add.json")
     @ResponseBody
     public Result add(SysUser user) {
+        user.setId(UUIDUtil.getUUID());
         Boolean b = sysUserService.saveOrUpdate(user);
         if (b) {
             return Result.success();
@@ -58,7 +60,7 @@ public class SysUserController {
     }
 
     @RequestMapping(model + "/edit.html")
-    public ModelAndView edit(int id) {
+    public ModelAndView edit(String id) {
         ModelAndView view = new ModelAndView("/system/sysUser/add");
         SysUser user = sysUserService.getById(id);
         view.addObject("user", user);
