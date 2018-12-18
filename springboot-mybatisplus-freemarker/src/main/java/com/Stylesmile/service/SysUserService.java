@@ -7,10 +7,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.List;
 
-public interface SysUserService extends BaseService<SysUser>{
+public interface SysUserService extends BaseService<SysUser> {
 
-    public Result<String> getSysUserByNameAndPassword(String loginName, String password);
-    public List<SysUser> geList();
+    Result<String> getSysUserByNameAndPassword(String loginName, String password);
+
+    List<SysUser> geList();
 
     IPage<SysUser> getUserList(Page<SysUser> page, Integer state);
 }
