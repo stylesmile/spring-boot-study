@@ -1,6 +1,6 @@
-package com.Stylesmile.service;
+package com.Stylesmile.system.service;
 
-import com.Stylesmile.entity.SysMenu;
+import com.Stylesmile.system.entity.SysMenu;
 
 import java.util.List;
 

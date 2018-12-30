@@ -49,7 +49,7 @@
             $.post("/login.json",
                 {loginName:loginName,password:password},
                 function(data){
-                    if(data.code==200){
+                    if(data.code==0){
                         location="/index.html"
                     }else{
                         layer.msg(data.msg);

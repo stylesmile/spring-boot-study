@@ -1,7 +1,7 @@
-package com.Stylesmile.service;
+package com.Stylesmile.system.service;
 
-import com.Stylesmile.dao.SysMenuMapper;
-import com.Stylesmile.entity.SysMenu;
+import com.Stylesmile.system.dao.SysMenuMapper;
+import com.Stylesmile.system.entity.SysMenu;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

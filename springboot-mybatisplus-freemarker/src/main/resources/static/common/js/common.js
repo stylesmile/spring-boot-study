@@ -27,7 +27,7 @@ var Common = {
     error: function (info) {
         Common.openConfirm(info)
     },
-    post: function (url, paras, next) {
+    post: function (url, paras, nextUrl) {
         $.ajax({
             url:Common.ctxPath+url,
             type:"POST",
@@ -35,16 +35,11 @@ var Common = {
             success:function(rsp){
                 if(rsp.code!=0){
                     Common.error(rsp.msg);
-
                 }else{
                     //成功
-                    if(next!=null){
-                        next(rsp.data);
-                    }else{
-                        Common.success(rsp.responseJSON.msg);
-                    }
+                    Common.info("删除成功");
+                    location.href=nextUrl;
                 }
-
             },
             error:function(rsp){
                 Common.error(rsp.responseJSON.msg);
@@ -172,31 +167,33 @@ var Common = {
         var index = parent.layer.getFrameIndex(window.name); // 先得到当前iframe层的索引
         parent.layer.close(index); // 再执行关闭
     },
+    dataReload : function() {
+        parent.window.dataReload();
+    },
+    post: function (url, paras, next) {
+        $.ajax({
+            url:Common.ctxPath+url,
+            type:"POST",
+            data:paras,
+            success:function(rsp){
+                if(rsp.code!=0){
+                    Common.error(rsp.msg);
 
-};
-
-
-//自定义 jquery方法
-(function($){
-    //序列化json   如form转json
-    $.fn.serializeJson = function(){
-        var serializeObj = {};
-        var array = this.serializeArray();
-        var str = this.serialize();
-        $(array).each(
-            function() {
-                if (serializeObj[this.name]) {
-                    if ($.isArray(serializeObj[this.name])) {
-                        serializeObj[this.name].push(this.value);
-                    } else {
-                        serializeObj[this.name] = [
-                            serializeObj[this.name], this.value ];
+                }else{
+                    //成功
+                    if(next!=null){
+                        next(rsp.data);
+                    }else{
+                        Common.success(rsp.responseJSON.msg);
                     }
-                } else {
-                    serializeObj[this.name] = this.value;
                 }
-            });
-        return serializeObj;
-    }
-
-}(jQuery));
+            },
+            error:function(rsp){
+                Common.error(rsp.responseJSON.msg);
+            }
+        })
+    },
+    dataReload : function() {
+        parent.window.location.reload(); //刷新
+    },
+};

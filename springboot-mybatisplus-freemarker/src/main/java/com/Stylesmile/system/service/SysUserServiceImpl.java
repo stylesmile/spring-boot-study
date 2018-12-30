@@ -1,9 +1,10 @@
-package com.Stylesmile.service;
+package com.Stylesmile.system.service;
 
-import com.Stylesmile.dao.SysUserMapper;
-import com.Stylesmile.entity.SysUser;
+import com.Stylesmile.common.PageQuery;
+import com.Stylesmile.system.dao.SysUserMapper;
+import com.Stylesmile.system.entity.SysUser;
+import com.Stylesmile.system.query.SysUserQuery;
 import com.Stylesmile.util.Result;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +27,20 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
         return baseMapper.getUserList();
     }
 
+
     @Override
-    public IPage<SysUser> getUserList(Page<SysUser> page, Integer state) {
-        return baseMapper.getUserList2(page,state);
+    public Page<SysUser> getUserList( SysUserQuery sysUserQuery) {
+        return baseMapper.getUserList(sysUserQuery);
+    }
+
+    @Override
+    public Boolean updateUser(SysUser user) {
+        return baseMapper.updateUser(user);
+    }
+
+    @Override
+    public Boolean deleteUser(String id) {
+        return baseMapper.deleteUser(id);
     }
 
 }

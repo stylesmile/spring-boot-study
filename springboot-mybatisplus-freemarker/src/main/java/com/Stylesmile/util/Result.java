@@ -1,6 +1,9 @@
 package com.Stylesmile.util;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * 描述: json格式数据返回对象，使用CustomResultSerializer 来序列化
@@ -12,6 +15,8 @@ public class Result<T> {
     private String code;
     private String msg;
     private T data;
+    private Long count;
+    private List<T> list;
 
     public T getData() {
         return data;
@@ -55,6 +60,22 @@ public class Result<T> {
     	ret.setMsg(ReturnCode.SUCCESS.getDesc());
         return ret;
     }
+//    public static <T> Result<T> successData(Integer count,List<T> data) {
+//        Result<T> ret = new Result<T>();
+//        ret.setCode(ReturnCode.SUCCESS.getCode());
+//        ret.setMsg(ReturnCode.SUCCESS.getDesc());
+//        ret.setCount(10L);
+//        ret.setList(data);
+//        return ret;
+//    }
+// public static <T> Result<T> success(IPage iPage) {
+//        Result<T> ret = new Result<T>();
+//        ret.setCode(ReturnCode.SUCCESS.getCode());
+//        ret.setMsg(ReturnCode.SUCCESS.getDesc());
+//        ret.setCount(iPage.getTotal());
+//        ret.setData((T) iPage.getRecords());
+//        return ret;
+//    }
 
     public static <T> Result<T> success(T data) {
 	    	Result<T> ret = Result.success();

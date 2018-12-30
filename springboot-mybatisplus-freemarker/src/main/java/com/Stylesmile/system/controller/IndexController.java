@@ -1,6 +1,6 @@
-package com.Stylesmile.controller;
+package com.Stylesmile.system.controller;
 
-import com.Stylesmile.service.SysUserService;
+import com.Stylesmile.system.service.SysUserService;
 import com.Stylesmile.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import java.util.Map;
 @Slf4j
 @Controller
 public class IndexController {
+
 	@Autowired
 	SysUserService sysUserService;
 
@@ -42,7 +43,9 @@ public class IndexController {
 		Result<String> result = sysUserService.getSysUserByNameAndPassword(loginName,password);
 		return result;
 	}
-	//后台首页
+	/**
+	 * 后台首页
+	 */
 	@RequestMapping("/index.html")
 	public ModelAndView index(){
 		ModelAndView view = new ModelAndView("/index");
@@ -51,7 +54,9 @@ public class IndexController {
 		view.addObject("data",map);
 		return view;
 	}
-	//后台首页
+	/**
+	 * 后台首页
+	 */
 	@RequestMapping("/index2.html")
 	public ModelAndView index2(){
 		ModelAndView view = new ModelAndView("/index2");

@@ -17,6 +17,7 @@
 </fieldset>
 
 <form class="layui-form" action="" style="margin-top: 20px;" id="form">
+    <input name="id" value="${user.id}" hidden="hidden">
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">名称</label>
@@ -47,26 +48,26 @@
         </div>
     </div>
 <div class="layui-form-item" style="position:absolute;left:20px;bottom:0px;">
-    <button class="layui-btn layui-btn-danger" type="button" lay-submit lay-filter="form" id="submit">保存</button>
+    <button class="layui-btn layui-btn-danger" type="button" lay-submit lay-filter="form" id="submit">修改</button>
     <button class="layui-btn layui-btn-normal" type="button" id="cancel">取消</button>
 </div>
 </form>
 <script>
     layui.use(['form'], function () {
-        var url = '/user/add.json';
+        var url = '/user/edit.json';
         $("#submit").click(function () {
             $.post(url, $("#form").serializeJson(),
                 function (data) {
+                    debugger
                     if (data.code == 200) {
-                        location = "/user/index.html"
+                        parent.window.dataReload();
                         layer.msg(data.msg);
+                        Common.closeFrame();
                     } else {
                         layer.msg(data.msg);
                     }
                 }
             )
-            window.location.reload()
-
         })
         $("#cancel").click(function () {
             Common.closeFrame();

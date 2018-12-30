@@ -2,13 +2,13 @@ package com.Stylesmile.util;
 
 /**
  * 数据返回码
- * 200 : 成功
+ * 0 : 成功
  * @author : chenye
  */
 public enum ReturnCode {
 
     NOT_LOGIN("401","未登录"),
-    SUCCESS ("200","成功"),
+    SUCCESS ("0","成功"),
     FAIL ("500","内部失败"),
 	ACCESS_ERROR ("403","禁止访问"),
 	NOT_FOUND ("404","页面未发现");

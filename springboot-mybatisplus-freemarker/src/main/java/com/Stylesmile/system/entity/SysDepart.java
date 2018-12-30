@@ -1,4 +1,4 @@
-package com.Stylesmile.entity;
+package com.Stylesmile.system.entity;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 2018/12/10
  */
 @Data
-public class SysMenu {
+public class SysDepart {
     private int id;
     private String parentId;
     private String name;
@@ -15,9 +15,9 @@ public class SysMenu {
     private String parentCode;
     private String sort;
 
-    public SysMenu() {}
+    public SysDepart() {}
 
-    public SysMenu(int id, String parentId, String name, String code, String parentCode, String sort) {
+    public SysDepart(int id, String parentId, String name, String code, String parentCode, String sort) {
         this.id = id;
         this.parentId = parentId;
         this.name = name;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Stylesmile.dao.SysMenuMapper">
-    <resultMap id="role" type="com.Stylesmile.entity.SysRole"/>
-    <parameterMap id="role2" type="com.Stylesmile.entity.SysRole"/>
+<mapper namespace="com.Stylesmile.system.dao.SysMenuMapper">
+    <resultMap id="role" type="com.Stylesmile.system.entity.SysRole"/>
+    <parameterMap id="role2" type="com.Stylesmile.system.entity.SysRole"/>
     <select id="getRoleList" resultMap="menu">
         SELECT  * FROM sys_menu
     </select>

@@ -1,4 +1,4 @@
-package com.Stylesmile.service;
+package com.Stylesmile.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 

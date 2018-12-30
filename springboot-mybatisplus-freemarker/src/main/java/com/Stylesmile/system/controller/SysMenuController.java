@@ -1,7 +1,7 @@
-package com.Stylesmile.controller;
+package com.Stylesmile.system.controller;
 
-import com.Stylesmile.entity.SysMenu;
-import com.Stylesmile.service.SysMenuService;
+import com.Stylesmile.system.entity.SysMenu;
+import com.Stylesmile.system.service.SysMenuService;
 import com.Stylesmile.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

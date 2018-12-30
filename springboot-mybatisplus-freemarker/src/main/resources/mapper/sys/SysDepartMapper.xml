@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Stylesmile.dao.SysDepartMapper">
-    <resultMap id="depart" type="com.Stylesmile.entity.SysDepart"/>
-    <parameterMap id="depart2" type="com.Stylesmile.entity.SysDepart"/>
+<mapper namespace="com.Stylesmile.system.dao.SysDepartMapper">
+    <resultMap id="depart" type="com.Stylesmile.system.entity.SysDepart"/>
+    <parameterMap id="depart2" type="com.Stylesmile.system.entity.SysDepart"/>
     <select id="getSysDepartByNameAndPassword" resultMap="depart">
         SELECT  * FROM sys_depart WHERE  login_name=#{loginName} AND password=#{password} limit 1
     </select>

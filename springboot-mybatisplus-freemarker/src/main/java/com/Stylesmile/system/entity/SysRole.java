@@ -1,4 +1,4 @@
-package com.Stylesmile.entity;
+package com.Stylesmile.system.entity;
 
 import lombok.Data;
 

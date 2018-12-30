@@ -1,6 +1,6 @@
-package com.Stylesmile.dao;
+package com.Stylesmile.system.dao;
 
-import com.Stylesmile.entity.SysMenu;
+import com.Stylesmile.system.entity.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
