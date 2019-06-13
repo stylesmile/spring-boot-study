@@ -15,6 +15,7 @@ public class MessageProducerServiceImpl implements IMessageProducerService {
     private JmsMessagingTemplate jmsMessagingTemplate;
     @Resource
     private Queue queue;
+
     @Override
     public void sendMessage(String msg) {
         this.jmsMessagingTemplate.convertAndSend(this.queue, msg);

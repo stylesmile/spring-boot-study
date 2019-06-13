@@ -15,6 +15,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class TestActiveMQ {
     @Resource
     private IMessageProducerService messageProducer;
+
     @Test
     public void testSend() throws Exception {
         for (int x = 0; x < 10; x++) {

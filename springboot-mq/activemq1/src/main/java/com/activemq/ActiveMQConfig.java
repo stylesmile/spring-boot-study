@@ -15,6 +15,6 @@ import org.springframework.jms.annotation.EnableJms;
 public class ActiveMQConfig {
     @Bean
     public Queue queue() {
-        return new ActiveMQQueue("study.msg.queue") ;
+        return new ActiveMQQueue("study.msg.queue");
     }
 }
