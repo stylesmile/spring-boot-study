@@ -9,7 +9,8 @@ import java.io.Serializable;
 /**
  * 基础dao层接口
  *
- * @author carfield
+ * @author chenye
+ * @date 2019-06-13
  */
 @NoRepositoryBean
 public interface BaseJpaRepository<T, ID extends Serializable>

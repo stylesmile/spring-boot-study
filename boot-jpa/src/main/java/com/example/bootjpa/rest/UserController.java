@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * @author chenye
+ * @date 2019-06-12
+ */
 @RestController
 public class UserController {
 
@@ -18,6 +22,7 @@ public class UserController {
     public List list() {
         return accountService.getList();
     }
+
     @GetMapping("/add")
     public UserEntity list(UserEntity user) {
         return accountService.add(user);
