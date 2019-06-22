@@ -1,4 +1,4 @@
-package com.example.bootswagger2.entity;
+package com.example.bootswagger.entity;
 
 public class JsonResult {
 
