@@ -1,0 +1,9 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: solr
+  data:
+    solr:
+      host: http://127.0.0.1:8984/solr
