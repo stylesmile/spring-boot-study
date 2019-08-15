@@ -3,6 +3,7 @@ package com.example;
 import com.example.dao.UserMapper;
 import com.example.entity.User;
 import com.example.service.UserService;
+import com.example.util.UUIDUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class DbTests {
     @Test
     public void testData() {
         for (int i = 10000; i < 100; i++) {
-            User user = new User(i + "", UUID.randomUUID().toString().replace("-", ""));
+            User user = User.UserBuilder.anUser().name(i + "").password(UUIDUtil.getUUID()).build();
             userService.save(user);
         }
     }

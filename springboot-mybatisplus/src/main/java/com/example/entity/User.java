@@ -24,4 +24,39 @@ public class User {
         this.password = password;
     }
 
+    public static final class UserBuilder {
+        private int id;
+        private String name;
+        private String password;
+
+        private UserBuilder() {
+        }
+
+        public static UserBuilder anUser() {
+            return new UserBuilder();
+        }
+
+        public UserBuilder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public UserBuilder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public UserBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public User build() {
+            User user = new User();
+            user.setId(id);
+            user.setName(name);
+            user.setPassword(password);
+            return user;
+        }
+    }
 }
