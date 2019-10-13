@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -69,13 +70,14 @@ public class UserController {
     /**
      * 添加用户
      *
-     * @param user
-     * @return
+     * @param user 用户
+     *             Validated 校验数据
+     * @return ResponseEntity
      */
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
     @ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")
     @RequestMapping(value = "user", method = RequestMethod.POST)
-    public ResponseEntity<JsonResult> add(@RequestBody User user) {
+    public ResponseEntity<JsonResult> add(@RequestBody @Validated User user) {
         JsonResult r = new JsonResult();
         try {
             users.put(user.getId(), user);
@@ -144,9 +146,4 @@ public class UserController {
         return ResponseEntity.ok(r);
     }
 
-    @ApiIgnore//使用该注解忽略这个API
-    @RequestMapping(value = "/hi", method = RequestMethod.GET)
-    public String jsonTest() {
-        return " hi you!";
-    }
 }

@@ -27,7 +27,14 @@ public class SwaggerConfig {
 	}
 
 	private Predicate<String> postPaths() {
-		return or(regex("/.*"), regex("/.*"));
+		return or(
+				//显示 /test/**
+				regex("/test/.*")
+				//显示 /test/**
+				,regex("/user/.*")
+				//显示 全部
+				//,regex("/.*")
+		);
 	}
 
 	private ApiInfo apiInfo() {
