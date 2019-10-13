@@ -8,13 +8,21 @@ package com.example.bootswagger.entity;
 public class Const {
 
     /**
-     * KEY_CAPTCHA :session里面图形验证码对应的key
+     * 国内电话 正则表达式
      */
-    public static final String KEY_CAPTCHA = "KEY_CAPTCHA";
+    public static final String PHONE = "\\d{3}-\\d{8}|\\d{4}-\\{7,8}";
     /**
-     * KEY_SMS : session里面短信验证码对应的key
+     * 邮箱 正则表达式
      */
-    public static final String KEY_SMS = "KEY_SMS";
+    public static final String MAIL = "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?";
+    /**
+     * 密码正则表达式 密码由数字和字母混合组成，6到20位
+     */
+    public static final String PASSWD_REGEXP = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
+    /**
+     * 中文 正则表达式
+     */
+    public static final String CHINESE_REGEXP = "[\\u4e00-\\u9fa5]";
 
     /**
      * 手机号码正则表达式,如果开放其他号段，在次修改
@@ -22,9 +30,4 @@ public class Const {
      */
     public static final String MOBILE_REGEXP = "(\\+\\d+)?1\\d{10}$";
 
-    /**
-     * 密码正则表达式 密码由数字和字母混合组成，6到20位
-     */
-    public static final String PASSWD_REGEXP = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
-    public static final String OPTIONS = "OPTIONS";
 }
