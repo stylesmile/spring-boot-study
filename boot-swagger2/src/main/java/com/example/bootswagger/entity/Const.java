@@ -12,6 +12,10 @@ public class Const {
      */
     public static final String PHONE = "\\d{3}-\\d{8}|\\d{4}-\\{7,8}";
     /**
+     * 至少8-16个字符，至少1个大写字母，1个小写字母和1个数字，其他可以是任意字符
+     */
+    public static final String PASSWORD = " /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[^]{8,16}$/";
+    /**
      * 邮箱 正则表达式
      */
     public static final String MAIL = "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?";
