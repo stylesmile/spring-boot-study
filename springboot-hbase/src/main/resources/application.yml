@@ -1,0 +1,10 @@
+
+hbase:
+  zookeeper:
+    quorum: hbase1.xxx.org,hbase2.xxx.org,hbase3.xxx.org
+    property:
+      clientPort: 2181
+
+zookeeper:
+  znode:
+    parent: /hbase
