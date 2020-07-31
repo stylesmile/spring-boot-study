@@ -1,0 +1,54 @@
+server:
+  port: 8080
+
+logging:
+  path: /Users/sorin/Desktop
+  level:
+    com:
+      favorites: DEBUG
+    org:
+      springframework:
+        web: INFO
+      mybaties: ERROR
+
+REDIS:
+  URL: nginx-18
+  PORT: 6379
+
+hbase:
+  master: hadoop-11:60000
+  zookeeper:
+    quorum: hadoop-11,hadoop-12,hadoop-13,hadoop-14
+    property:
+      clientPort: 2181
+zookeeper:
+  znode:
+    parent: /hbase
+
+kafka:
+  consumer:
+    zookeeper:
+      connect: 127.0.0.1:2182
+    servers: 127.0.0.1:9092
+    enable:
+      auto:
+        commit: true
+    session:
+      timeout: 6000
+    auto:
+      commit:
+        interval: 100
+      offset:
+        reset: latest
+    topic: mhd-notice
+    group:
+      id: mhd-notice
+    concurrency: 10
+  producer:
+    servers: 127.0.0.1:9092
+    retries: 0
+    batch:
+      size: 4096
+    linger: 1
+    buffer:
+      memory: 40960
