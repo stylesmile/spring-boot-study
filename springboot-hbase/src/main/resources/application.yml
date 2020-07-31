@@ -1,7 +1,8 @@
 
 hbase:
   zookeeper:
-    quorum: hbase1.xxx.org,hbase2.xxx.org,hbase3.xxx.org
+    #quorum: hbase1.xxx.org,hbase2.xxx.org,hbase3.xxx.org
+    quorum: 39.97.250.105
     property:
       clientPort: 2181
 
