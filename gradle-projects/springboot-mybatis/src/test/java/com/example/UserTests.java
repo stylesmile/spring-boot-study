@@ -29,4 +29,10 @@ public class UserTests {
         List<User> userList = userMapper.query();
         System.out.println(userList);
     }
+
+    @Test
+    public void getUserList() {
+        List<User> userList = userMapper.getUserList();
+        System.out.println(userList);
+    }
 }
