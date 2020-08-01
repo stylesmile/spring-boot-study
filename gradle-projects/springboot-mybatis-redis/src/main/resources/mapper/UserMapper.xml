@@ -6,7 +6,7 @@
     <parameterMap id="user2" type="com.example.entity.User"/>
 
     <select id="getUserList" resultMap="user">
-        SELECT  * FROM USER
+        SELECT  * FROM user
     </select>
 
     <select id="selectPageVo" resultMap="user" parameterMap="user2">
