@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.240.131:3306/mybatisplus?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 1
+    host: 192.168.240.131
+    port: 6379
+  data:
+    mongodb:
+      tasksMongoTemplate:
+        host: 39.97.250.105
+        database: tasks
+        username: tasks
+        password: admin123456!
+        port: 27016
+      logsMongoTemplate:
+        host: 39.97.250.105
+        database: logs
+        username: logs
+        password: admin123456!
+        port: 27016
+#      host: 39.97.250.105
+#      database: tasks
+#      username: tasks
+#      password: admin123456!
+#      port: 27016
+
+
