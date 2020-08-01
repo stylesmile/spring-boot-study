@@ -26,7 +26,7 @@ public class UserTests {
 
     @Test
     public void query() {
-        List<User> userList = userMapper.getUserList();
+        List<User> userList = userMapper.query();
         System.out.println(userList);
     }
 }
