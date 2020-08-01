@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+
+mybatis:
+  typeAliasesPackage: com.example.entity
+  mapperLocations: classpath:mapper/*.xml
+  #configLocation: classpath:/mybatis-config.xml
+
+mybatis-plus:
+  type-aliases-package: com.example.dao
