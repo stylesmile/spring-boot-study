@@ -1,0 +1,45 @@
+spring:
+  application: app-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/will_art?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: root
+    password: db1234567
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #    hikari:
+  #      jdbc-url: jdbc:mysql://39.97.250.105:3305/will_art?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+  #      driver-class-name: com.mysql.cj.jdbc.Driver
+  #      username: root
+  #      password: db1234567!@#$
+  data:
+    mongodb:
+      host: localhost
+      database: tasks
+      port: 27017
+      username: tasks
+      password: 123456
+  redis:
+    database: 1
+    host: 39.97.250.105
+    port: 6378
+
+#    mongodb:
+#      tasks:
+#        host: 39.97.250.105
+#        database: tasks
+#        port: 27016
+#        username: tasks
+#        password: admin123456!
+#      logs:
+#        host: 39.97.250.105
+#        database: logs
+#        port: 27016
+#        username: tasks
+#        password: admin123456!
+
+server:
+  port: 8780
+  tomcat:
+    uri-encoding:
+
+
