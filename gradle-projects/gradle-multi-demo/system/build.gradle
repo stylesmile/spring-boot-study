@@ -1,0 +1,9 @@
+archivesBaseName = 'system'
+
+jar.enabled = true
+bootJar.enabled = true
+
+
+dependencies {
+    //implementation project(':common') /* 子模块之间的依赖 */
+}
