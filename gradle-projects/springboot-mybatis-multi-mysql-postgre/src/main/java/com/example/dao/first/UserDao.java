@@ -1,11 +1,11 @@
-package com.jtcoding.springbootmultidatasource.dao.first;
+package com.example.dao.first;
 
-import com.jtcoding.springbootmultidatasource.model.User;
-import lombok.Setter;
+import com.example.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+
 
 /**
  * @author jason.tang

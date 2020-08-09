@@ -1,7 +1,7 @@
-package com.jtcoding.springbootmultidatasource.dao.second;
+package com.example.dao.second;
 
-import com.jtcoding.springbootmultidatasource.model.SrcUser;
-import com.jtcoding.springbootmultidatasource.model.User;
+import com.example.model.SrcUser;
+import com.example.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

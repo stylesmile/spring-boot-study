@@ -1,4 +1,4 @@
-package com.jtcoding.springbootmultidatasource.model;
+package com.example.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
