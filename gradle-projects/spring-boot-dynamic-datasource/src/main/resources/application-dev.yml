@@ -1,0 +1,31 @@
+mybatis:
+    first:
+        mapper-locations: classpath:mapper/first/*.xml
+    second:
+        mapper-locations: classpath:mapper/second/*.xml
+    third:
+        mapper-locations: classpath:mapper/third/*.xml
+spring:
+    datasource:
+        dyn
+        first:
+            driverClassName: com.mysql.cj.jdbc.Driver
+            jdbcUrl: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+            username: root
+            password: 123456
+#        second:
+#            driverClassName: com.mysql.cj.jdbc.Driver
+#            jdbcUrl: jdbc:mysql://localhost:3306/second?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+#            username: root
+#            password: 123456
+#        third:
+#            driverClassName: org.postgresql.Driver
+#            jdbcUrl: jdbc:postgresql://localhost:5432/test3
+#            username: postgres
+#            password: 12345678
+
+        second:
+            driverClassName: org.postgresql.Driver
+            jdbcUrl: jdbc:postgresql://localhost:5432/test3
+            username: postgres
+            password: 12345678
