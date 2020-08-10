@@ -18,7 +18,7 @@ public interface UserMapper {
      *
      * @return List
      */
-    @Select("select * from user ")
+    @Select("select * from user  limit 10 ")
     List<User> query();
 
     List<User> getUserList();

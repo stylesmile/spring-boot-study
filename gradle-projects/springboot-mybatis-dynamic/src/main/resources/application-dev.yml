@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    dynamic:
+      #primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+          url: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+        slave1:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/second?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+        postgresql:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://localhost:5432/test3
+          username: postgres
+          password: 12345678
+#        slave2:
+#          driver-class-name: com.mysql.cj.jdbc.Driver
+#          url: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+#          username: root
+#          password: 123456 # 3.2.0开始支持SPI可省略此配置
+#                postgres_1:
+#                    driver-class-name: org.postgresql.Driver
+#                    url: jdbc:postgresql://localhost:5432/test3
+#                    username: postgres
+#                    password: 12345678
+#                slave_3:
+#                    url: ENC(xxxxx) # 内置加密,使用请查看详细文档
+#                    username: ENC(xxxxx)
+#                    password: ENC(xxxxx)
+#                    driver-class-name: com.mysql.jdbc.Driver
+#                    schema: db/schema.sql # 配置则生效,自动初始化表结构
+#                    data: db/data.sql # 配置则生效,自动初始化数据
+#                    continue-on-error: true # 默认true,初始化失败是否继续
+#                    separator: ";" # sql默认分号分隔符
+#        first:
+#            driverClassName: com.mysql.cj.jdbc.Driver
+#            jdbcUrl: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+#            username: root
+#            password: 123456
+#        second:
+#            driverClassName: org.postgresql.Driver
+#            jdbcUrl: jdbc:postgresql://localhost:5432/test3
+#            username: postgres
+#            password: 12345678

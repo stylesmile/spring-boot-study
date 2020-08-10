@@ -1,31 +1,36 @@
-mybatis:
-    first:
-        mapper-locations: classpath:mapper/first/*.xml
-    second:
-        mapper-locations: classpath:mapper/second/*.xml
-    third:
-        mapper-locations: classpath:mapper/third/*.xml
 spring:
-    datasource:
-        dyn
-        first:
-            driverClassName: com.mysql.cj.jdbc.Driver
-            jdbcUrl: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
-            username: root
-            password: 123456
-#        second:
-#            driverClassName: com.mysql.cj.jdbc.Driver
-#            jdbcUrl: jdbc:mysql://localhost:3306/second?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
-#            username: root
-#            password: 123456
-#        third:
-#            driverClassName: org.postgresql.Driver
-#            jdbcUrl: jdbc:postgresql://localhost:5432/test3
-#            username: postgres
-#            password: 12345678
-
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
         second:
-            driverClassName: org.postgresql.Driver
-            jdbcUrl: jdbc:postgresql://localhost:5432/test3
-            username: postgres
-            password: 12345678
+          driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+          url: jdbc:mysql://localhost:3306/second?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+        third:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://localhost:5432/test3
+          username: postgres
+          password: 12345678
+#spring:
+#  datasource:
+#    primary: first
+#    dynamic:
+#      datasource:
+#        first:
+#          driver-class-name: com.mysql.cj.jdbc.Driver
+#          url: jdbc:mysql://localhost:3306/first?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+#          username: root
+#          password: 123456
+#        second:
+#          driver-class-name: org.postgresql.Driver
+#          url: jdbc:postgresql://localhost:5432/test3
+#          username: postgres
+#          password: 12345678
