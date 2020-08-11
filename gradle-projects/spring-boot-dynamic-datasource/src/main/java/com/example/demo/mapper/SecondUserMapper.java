@@ -7,13 +7,8 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-public interface ThirdUserMapper {
+public interface SecondUserMapper {
 
-
-    int deleteSrcUser(Integer userNum);
-
-    int addSrcUser(User user);
-
-    @Select("select * from third_user")
+    @Select("select * from second_user")
     List<User> query();
 }

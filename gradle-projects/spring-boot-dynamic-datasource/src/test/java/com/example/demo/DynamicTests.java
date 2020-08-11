@@ -9,12 +9,18 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootTest
-@DS("slave_1")
+@DS("master")
 public class DynamicTests {
 
     @Resource
     private JdbcTemplate jdbcTemplate;
 
+    @Resource
+    SecondUserService secondUserService;
+
+    /**
+     * 失败测试
+     */
     @DS("master")
     @Test
     public void selectByCondition() {
@@ -22,11 +28,32 @@ public class DynamicTests {
         System.out.println(list);
     }
 
-
+    /**
+     * 失败测试
+     */
+    @DS("second")
     @Test
-    @DS("slave_1")
     public void selectByCondition2() {
-        List list = jdbcTemplate.queryForList("select * from src_user");
+        List list = jdbcTemplate.queryForList("select * from second_user");
+        System.out.println(list);
+    }
+
+    /**
+     * 正确
+     */
+    @Test
+    public void selectByCondition22() {
+        List list = secondUserService.selectByCondition2();
+        System.out.println(list);
+    }
+
+    /**
+     * 失败测试
+     */
+    @Test
+    @DS("third")
+    public void selectByCondition3() {
+        List list = jdbcTemplate.queryForList("select * from third_user");
         System.out.println(list);
     }
 }

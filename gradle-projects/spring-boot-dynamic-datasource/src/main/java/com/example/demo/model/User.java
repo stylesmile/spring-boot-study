@@ -9,7 +9,8 @@ import lombok.ToString;
  */
 @Data
 @ToString
-public class User extends SrcUser {
+@EqualsAndHashCode(callSuper=false)
+public class User extends SecondUser {
     private Integer userNum;
     private String username;
     private String password;

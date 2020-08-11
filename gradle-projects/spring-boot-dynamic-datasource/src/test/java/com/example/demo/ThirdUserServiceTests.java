@@ -18,4 +18,10 @@ public class ThirdUserServiceTests {
         List<User> userList = thirdUserService.getUsers();
         System.out.println(userList);
     }
+
+    @Test
+    public void test2() {
+        List<User> userList = thirdUserService.selectByCondition2();
+        System.out.println(userList);
+    }
 }

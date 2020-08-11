@@ -8,14 +8,19 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootTest
-public class SrcUserServiceTests {
+public class SecondUserServiceTests {
 
     @Resource
-    SrcUserService srcUserService;
+    SecondUserService secondUserService;
 
     @Test
     public void test() {
-        List<User> userList = srcUserService.getUsers();
+        List<User> userList = secondUserService.getUsers();
+        System.out.println(userList);
+    }
+    @Test
+    public void test2() {
+        List<User> userList = secondUserService.selectByCondition2();
         System.out.println(userList);
     }
 }
