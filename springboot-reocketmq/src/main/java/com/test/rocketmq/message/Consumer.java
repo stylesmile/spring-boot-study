@@ -29,7 +29,7 @@ public class Consumer {
     /**
      * 消费者组
      */
-    public static final String CONSUMER_GROUP = "test_consumer";
+    public static final String CONSUMER_GROUP = "DefaultCluster";
 
     /**
      * 通过构造函数 实例化对象

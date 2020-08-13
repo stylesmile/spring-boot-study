@@ -26,9 +26,9 @@ public class Controller {
         //同步
         sync();
         //异步
-        async();
+        //async();
         //单项发送
-        oneWay();
+        //oneWay();
     }
 
     /**
@@ -36,7 +36,7 @@ public class Controller {
      */
     private void sync() throws Exception {
         //创建消息
-        Message message = new Message("topic_family", ("  同步发送  ").getBytes());
+        Message message = new Message("test_topic", ("  同步发送  ").getBytes());
         //同步发送消息
         SendResult sendResult = producer.getProducer().send(message);
         log.info("Product-同步发送-Product信息={}", sendResult);
@@ -47,7 +47,7 @@ public class Controller {
      */
     private void async() throws Exception {
         //创建消息
-        Message message = new Message("topic_family", ("  异步发送  ").getBytes());
+        Message message = new Message("topic_topic", ("  异步发送  ").getBytes());
         //异步发送消息
         producer.getProducer().send(message, new SendCallback() {
             @Override
@@ -69,7 +69,7 @@ public class Controller {
      */
     private void oneWay() throws Exception {
         //创建消息
-        Message message = new Message("topic_family", (" 单项发送 ").getBytes());
+        Message message = new Message("topic_topic", (" 单项发送 ").getBytes());
         //同步发送消息
         producer.getProducer().sendOneway(message);
     }
