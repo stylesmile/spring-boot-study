@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producer {
 
-    private String producerGroup = "test_producer";
+    private String producerGroup = "DefaultCluster";
 
     private DefaultMQProducer producer;
 
