@@ -1,4 +1,4 @@
-package com.example.demo.hbase;
+package com.example.hbase;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;

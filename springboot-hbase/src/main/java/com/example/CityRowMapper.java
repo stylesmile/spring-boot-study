@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;

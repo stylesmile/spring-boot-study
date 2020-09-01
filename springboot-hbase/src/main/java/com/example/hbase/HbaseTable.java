@@ -1,4 +1,4 @@
-package com.example.demo.hbase;
+package com.example.hbase;
 
 import java.lang.annotation.*;
 

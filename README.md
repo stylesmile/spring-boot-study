@@ -1,29 +1,27 @@
-# spring-boot-study
+## 介绍
+手把手，用一个个例子教你springboot,springcloud,dubbo,redis,mongo,jpa,mybatis,mq(rabbitmq,rocketmq)
+java学习之路，包含基础、高并发、高可用、分布式、微服务知识
 
-#### 项目介绍
-springboot 学习， demo练手项目
-#### 软件架构
-软件架构说明
+##目录
+-[springboot基础]()
+    -[springboto入门例子](springbootdemo)
+    -[10大排序算法](algorithm算法/10大排序算法.md)
+    -[数据结构算法]()
+-[springboot-mq]()
+    -[springboto入门例子](springbootdemo)
+    -[10大排序算法](algorithm算法/10大排序算法.md)
+    -[数据结构算法]()
 
-
-#### 安装教程
-
-1. xxxx
-2. xxxx
-3. xxxx
 
 #### 使用说明
+idea 导出后，
+选择右下角的
+import maven project
+或者
+import gradle project
 
-1. xxxx
-2. xxxx
-3. xxxx
 
-#### 参与贡献
 
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
 
 
 #### 码云特技

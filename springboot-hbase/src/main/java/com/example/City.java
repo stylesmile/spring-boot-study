@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 /**
  * 城市实体类

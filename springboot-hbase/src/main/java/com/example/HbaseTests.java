@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example;
 
 import org.apache.hadoop.hbase.client.Mutation;
 import org.apache.hadoop.hbase.client.Put;
