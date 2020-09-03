@@ -25,6 +25,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'dev.miku:r2dbc-mysql'
     runtimeOnly 'mysql:mysql-connector-java'
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
