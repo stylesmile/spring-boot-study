@@ -17,5 +17,9 @@ public class RouterConfig {
     public RouterFunction<?> helloRouter() {
         return RouterFunctions.route(RequestPredicates.GET("/hello"), helloWorldHandler::helloWorld);
     }
+    @Bean
+    public RouterFunction<?> helloRouter2() {
+        return RouterFunctions.route(RequestPredicates.GET("/hello2"), helloWorldHandler::helloWorld2);
+    }
 
 }

@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class IndexController {
-
+    /**
+     * http://localhost:8080/index
+     */
     @GetMapping("/index")
     public String index() {
         return "index";
