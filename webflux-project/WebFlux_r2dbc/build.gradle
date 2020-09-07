@@ -15,7 +15,18 @@ configurations {
 }
 
 repositories {
-    mavenCentral()
+    //1.优先查找本地maven库，性能最好
+    mavenLocal()
+
+    //2.其次查找aliyun maven库
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    maven {
+        url 'https://maven.aliyun.com/repository/spring/'
+    }
+
+    mavenCentral()//3.最后查找maven中央库
 }
 
 dependencies {
