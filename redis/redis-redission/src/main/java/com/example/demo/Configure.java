@@ -8,22 +8,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Configure {
-//    @Bean
-//    public Redisson redisson() {
-//        Config config = new Config();
-//        config.useSentinelServers()
-//                .addSentinelAddress("redis://127.0.0.1:6379")
-//                .setConnectTimeout(2000)
-//                .setDatabase(0);
-//
-//        return (Redisson) Redisson.create(config);
-//    }
 
     @Bean
     public Redisson redisson() {
         Config config = new Config();
         config.useSingleServer()
                 .setAddress("redis://127.0.0.1:6379")
+                .setTimeout(2000)
                 .setDatabase(1);
         RedissonClient redisson = Redisson.create(config);
         return (Redisson) redisson;

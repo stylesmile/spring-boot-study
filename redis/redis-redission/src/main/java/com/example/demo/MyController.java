@@ -11,8 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author : chenye
- * @date : 2020-12-17 23:14
- * @describe :
+ * @date : 2020-12-17
  */
 @Slf4j
 @RestController

@@ -28,8 +28,8 @@ repositories {
     maven {
         url 'https://maven.aliyun.com/repository/gradle-plugin/'
     }
-
-    mavenCentral()//3.最后查找maven中央库
+    //3.最后查找maven中央库
+    mavenCentral()
 }
 
 dependencies {
@@ -37,11 +37,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    //annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     compile('org.redisson:redisson:3.14.0')
-
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
