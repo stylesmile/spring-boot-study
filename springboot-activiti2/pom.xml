@@ -103,7 +103,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.10</version>
+            <version>8.0.28</version>
             <scope>runtime</scope>
         </dependency>
         <!-- mybatis-plus-boot-starter 与activiti 冲突，不会自动引入该包，需手动引入 -->
